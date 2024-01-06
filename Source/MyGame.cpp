@@ -20,11 +20,13 @@
 
 #include "Components/Ball.h"
 #include "Components/Basket.h"
+#include "Components/ThrowLineLimit.h"
 
 #include "Archetypes/BallArchetype.h"
 
 #include "Systems/BallDestructionSystem.h"
 #include "Systems/BallCollisionSystem.h"
+#include "Systems/BallSpawnSystem.h"
 #include "Systems/BasketMovementSystem.h"
 
 using namespace ElixirGame;
@@ -36,6 +38,7 @@ void MyGame::RegisterComponents()
 	// components
 	EntityEditor::RegisterComponent<Ball>(ICON_MDI_BASKETBALL, "game");
 	EntityEditor::RegisterComponent<Basket>(ICON_MDI_BASKETBALL_HOOP, "game");
+	EntityEditor::RegisterComponent<ThrowLineLimit>(ICON_MDI_BASKETBALL_HOOP, "game");
 }
 
 void MyGame::RegisterSystems()
@@ -44,6 +47,8 @@ void MyGame::RegisterSystems()
 
 	SystemEditor::RegisterSystem<BallDestructionSystem>(ICON_MDI_BASKETBALL);
 	SystemEditor::RegisterSystem<BallCollisionSystem>(ICON_MDI_BASKETBALL);
+	SystemEditor::RegisterSystem<BallSpawnSystem>(ICON_MDI_BASKETBALL);
+
 	SystemEditor::RegisterSystem<BasketMovementSystem>(ICON_MDI_BASKETBALL);
 }
 
@@ -81,11 +86,6 @@ void MyGame::Init()
 
 void MyGame::Update()
 {
-	if (Mouse::IsButtonPressed(EMouseButton::RIGHT))
-	{
-		BallArchetype::Create(Mouse::GetWorldPosition3D());
-	}
-
 	// Mouse Tests
 	/*if (Mouse::IsScrollingDown())
 	{

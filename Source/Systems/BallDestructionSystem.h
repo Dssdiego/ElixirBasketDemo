@@ -13,8 +13,6 @@
 
 namespace ElixirGame
 {
-	using namespace Elixir;
-
 	struct BallDestructionSystem { };
 }
 

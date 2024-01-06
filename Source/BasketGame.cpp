@@ -7,8 +7,8 @@
 #include "../Source/ECS/ECS.h"
 #include "../Source/Color/Color.h"
 
-#include "Archetypes/BallArchetype.h"
 #include "Archetypes/BasketArchetype.h"
+#include "Archetypes/ThrowLineLimitArchetype.h"
 
 using namespace Elixir;
 using namespace ElixirGame;
@@ -18,7 +18,7 @@ void BasketGame::CreateWorld()
 	// Clear the world before initializing it
 	ECS::DestroyAll();
 
-	//BallArchetype::Create();
 	BasketArchetype::Create();
+	ThrowLineLimitArchetype::Create();
 }
 
