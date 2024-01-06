@@ -7,8 +7,6 @@
 #include "../Source/ECS/EntityEditor.h"
 #include "../Source/Editor/EditorDraw.h"
 
-#include "../Source/Color/Color.h"
-
 namespace ElixirGame
 {
 	struct Ball

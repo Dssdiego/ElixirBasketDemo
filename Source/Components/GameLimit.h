@@ -9,19 +9,15 @@
 
 namespace ElixirGame
 {
-	struct Basket
+	struct GameLimit
 	{
-		float speed = 1.f;
-		float directionX = 1.f;
-		bool bCanChangeDirection = false;
+		float foo = 1.f;
 
 		/* Serialization */
 		template<class Archive>
 		void serialize(Archive& archive)
 		{
-			archive(speed);
-			archive(directionX);
-			archive(bCanChangeDirection);
+			archive(foo);
 		}
 	};
 }
@@ -33,7 +29,7 @@ namespace Elixir
 
 	/* Draw component in editor */
 	template <>
-	void EditorWidget<Basket>(entt::registry& registry, entt::entity entity)
+	void EditorWidget<GameLimit>(entt::registry& registry, entt::entity entity)
 	{
 	}
 }

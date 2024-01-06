@@ -8,6 +8,7 @@
 #include "../Source/Time/Time.h"
 
 #include "../Components/Basket.h"
+#include "../Systems/GameDifficultySystem.h"
 
 #include <entt/entt.hpp>
 
@@ -35,10 +36,17 @@ namespace Elixir
 			Basket& basket = registry.get<Basket>(entity);
 			WorldTransform& worldTransform = registry.get<WorldTransform>(entity);
 
-			worldTransform.position.x += basket.directionX * basket.speed * Time::Delta;
+			worldTransform.position.x += basket.directionX * basket.speed * GameDifficultySystem::GetLevel() * Time::Delta;
 
-			if (worldTransform.position.x >= 6.f || worldTransform.position.x <= -6.f)
+			if (worldTransform.position.x >= -5.9f && worldTransform.position.x <= 5.9f)
+				basket.bCanChangeDirection = true;
+
+			if (basket.bCanChangeDirection && (worldTransform.position.x > 6.f || worldTransform.position.x < -6.f))
+			{
 				basket.directionX *= -1;
+				basket.bCanChangeDirection = false;
+				break;
+			}
 		}
 	}
 }

@@ -16,6 +16,8 @@
 
 #include "../Archetypes/HitMissArchetype.h"
 
+#include "../Systems/GameDifficultySystem.h"
+
 #include <entt/entt.hpp>
 
 namespace ElixirGame
@@ -37,8 +39,6 @@ namespace Elixir
 		if (!registry.valid(basketEntity))
 			return;
 
-		//Hitbox& basketHitbox = registry.get<Hitbox>(basketEntity);
-
 		// Iterate for all the ball entities to check the collision against the basket
 		auto ballView = registry.view<Ball>();
 		for (auto ballEntity : ballView)
@@ -47,11 +47,11 @@ namespace Elixir
 				return;
 
 			Ball& ball = registry.get<Ball>(ballEntity);
-			//Hitbox& ballHitbox = registry.get<Hitbox>(ballEntity);
 			WorldTransform& ballWorldTransform = registry.get<WorldTransform>(ballEntity);
 
 			if (CollisionSystem::CheckCollision(registry, basketEntity, ballEntity))
 			{
+				GameDifficultySystem::Increase();
 				HitMissArchetype::Create(ballWorldTransform.position, EHitMissType::HIT);
 				ECS::Destroy(ballEntity);
 			}

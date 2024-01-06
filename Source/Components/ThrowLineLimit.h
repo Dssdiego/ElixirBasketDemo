@@ -11,12 +11,14 @@ namespace ElixirGame
 {
 	struct ThrowLineLimit
 	{
-		float positionY = 2.3f;
+		float initialY = 0.f;
+		float positionY = 0.f;
 
 		/* Serialization */
 		template<class Archive>
 		void serialize(Archive& archive)
 		{
+			archive(initialY);
 			archive(positionY);
 		}
 	};

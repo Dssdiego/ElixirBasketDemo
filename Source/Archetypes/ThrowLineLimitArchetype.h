@@ -30,6 +30,7 @@ namespace ElixirGame
 			auto line = ECS::Create("Throw Line Limit");
 
 			ThrowLineLimit lineComp;
+			lineComp.initialY = 1.5f;
 			lineComp.positionY = 1.5f;
 
 			Sprite sprite;

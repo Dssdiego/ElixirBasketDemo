@@ -9,6 +9,8 @@
 #include "../Components/Ball.h"
 #include "../Archetypes/HitMissArchetype.h"
 
+#include "../Systems/GameDifficultySystem.h"
+
 #include <entt/entt.hpp>
 
 namespace ElixirGame
@@ -39,6 +41,7 @@ namespace Elixir
 			// And then we create the "Miss" image
 			if (worldTransform.position.y > 3.5f)
 			{
+				GameDifficultySystem::Decrease();
 				HitMissArchetype::Create(worldTransform.position, EHitMissType::MISS);
 				ECS::Destroy(entity);
 			}

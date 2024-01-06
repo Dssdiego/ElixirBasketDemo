@@ -9,6 +9,7 @@
 
 #include "Archetypes/BasketArchetype.h"
 #include "Archetypes/ThrowLineLimitArchetype.h"
+#include "Archetypes/GameLimitArchetype.h"
 
 using namespace Elixir;
 using namespace ElixirGame;
@@ -20,5 +21,8 @@ void BasketGame::CreateWorld()
 
 	BasketArchetype::Create();
 	ThrowLineLimitArchetype::Create();
+
+	GameLimitArchetype::Create(glm::vec3(7.f, 0.f, 0.f), "Right");
+	GameLimitArchetype::Create(glm::vec3(-7.f, 0.f, 0.f), "Left");
 }
 
