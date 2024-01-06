@@ -1,6 +1,54 @@
 textures:
-  - name: dvd_logo
-    path: Game/Assets/Textures/DVDLogo.png
-    tile_w: 1200
-    tile_h: 720
+  - name: ball
+    path: Game/Assets/Textures/ball.png
+    tile_w: 34
+    tile_h: 34
+    sampler: pixel_art
+
+  - name: basket
+    path: Game/Assets/Textures/basket.png
+    tile_w: 47
+    tile_h: 34
+    sampler: pixel_art
+
+  - name: basket_arrows
+    path: Game/Assets/Textures/basket_arrows.png
+    tile_w: 26
+    tile_h: 15
+    sampler: pixel_art
+
+  - name: click_continue
+    path: Game/Assets/Textures/click_continue_text.png
+    tile_w: 162
+    tile_h: 12
+    sampler: pixel_art
+
+  - name: hit
+    path: Game/Assets/Textures/icon_hit.png
+    tile_w: 31
+    tile_h: 23
+    sampler: pixel_art
+
+  - name: miss
+    path: Game/Assets/Textures/icon_miss.png
+    tile_w: 24
+    tile_h: 24
+    sampler: pixel_art
+
+  - name: click
+    path: Game/Assets/Textures/mouse_click.png
+    tile_w: 19
+    tile_h: 17
+    sampler: pixel_art
+
+  - name: score
+    path: Game/Assets/Textures/score_background.png
+    tile_w: 56
+    tile_h: 19
+    sampler: pixel_art
+
+  - name: title
+    path: Game/Assets/Textures/title.png
+    tile_w: 194
+    tile_h: 55
     sampler: pixel_art

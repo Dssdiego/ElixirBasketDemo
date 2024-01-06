@@ -3,7 +3,7 @@
 */
 
 #include "MyGame.h"
-#include "DVDLogo.h"
+#include "BasketGame.h"
 
 #include <imgui/IconsMaterialDesignIcons.h>
 
@@ -17,10 +17,11 @@
 
 #include "../Source/Input/Mouse.h"
 
-#include "Components/DVD.h"
+#include "Components/Ball.h"
 
-#include "Systems/LogoMovementSystem.h"
-#include "Systems/LogoCollisionSystem.h"
+#include "Archetypes/BallArchetype.h"
+
+#include "Systems/BallDestructionSystem.h"
 
 using namespace ElixirGame;
 
@@ -29,15 +30,15 @@ void MyGame::RegisterComponents()
 	Logger::Info(ELogContext::GAME, "Registering game components...");
 
 	// components
-	EntityEditor::RegisterComponent<DVD>(ICON_MDI_DISC, "game");
+	EntityEditor::RegisterComponent<Ball>(ICON_MDI_BASKETBALL, "game");
 }
 
 void MyGame::RegisterSystems()
 {
 	Logger::Info(ELogContext::GAME, "Registering game systems...");
 
-	SystemEditor::RegisterSystem<LogoMovementSystem>(ICON_MDI_CURSOR_MOVE);
-	SystemEditor::RegisterSystem<LogoCollisionSystem>(ICON_MDI_CURSOR_MOVE);
+	SystemEditor::RegisterSystem<BallDestructionSystem>(ICON_MDI_BASKETBALL);
+	//SystemEditor::RegisterSystem<LogoCollisionSystem>(ICON_MDI_CURSOR_MOVE);
 }
 
 void MyGame::RegisterInputActions()
@@ -47,13 +48,13 @@ void MyGame::RegisterInputActions()
 
 void MyGame::SetupCamera()
 {
-	Camera::SetOrtographicZoom(1.f);
+	Camera::SetOrtographicZoom(0.5f);
 	Camera::SetWorldPosition(glm::vec3(0.f, 0.f, 0.f));
 }
 
 void MyGame::Prepare()
 {
-	SetTitle("Alchymia v0.1.0");
+	SetTitle("Basket Game");
 }
 
 void MyGame::Init()
@@ -65,15 +66,20 @@ void MyGame::Init()
 	//Window::EnableWindowResizing(false);
 	//Window::Resize(480, 600);
 
-	Color::EngineClear = Color::Black;
+	Color::EngineClear = Color::GMB_4;
 
-	DVDLogo::CreateWorld();
+	BasketGame::CreateWorld();
 
 	//Time::SetScale(0.1f);
 }
 
 void MyGame::Update()
 {
+	if (Mouse::IsButtonPressed(EMouseButton::LEFT))
+	{
+		BallArchetype::Create(Mouse::GetWorldPosition3D());
+	}
+
 	// Mouse Tests
 	/*if (Mouse::IsScrollingDown())
 	{

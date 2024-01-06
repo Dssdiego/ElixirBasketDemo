@@ -14,7 +14,7 @@
 
 #include "../Source/Math/RandomGenerator.h"
 
-#include "../Components/DVD.h"
+//#include "../Components/DVD.h"
 
 namespace ElixirGame
 {
@@ -49,62 +49,62 @@ namespace Elixir
 	template <>
 	void SystemUpdate<LogoCollisionSystem>(entt::registry& registry)
 	{
-		// deal a card
-		auto view = registry.view<DVD>();
+		//// deal a card
+		//auto view = registry.view<DVD>();
 
-		for (auto entity : view)
-		{
-			auto collided = false;
+		//for (auto entity : view)
+		//{
+		//	auto collided = false;
 
-			if (!registry.valid(entity))
-				return;
+		//	if (!registry.valid(entity))
+		//		return;
 
-			DVD& dvdLogo = registry.get<DVD>(entity);
-			Sprite& sprite = registry.get<Sprite>(entity);
+		//	DVD& dvdLogo = registry.get<DVD>(entity);
+		//	Sprite& sprite = registry.get<Sprite>(entity);
 
-			WorldTransform& worldTransform = registry.get<WorldTransform>(entity);
-			
-			// HORIZONTAL MOVEMENT
-			if (worldTransform.position.x > 3.f && worldTransform.position.x < 3.05f)
-			{
-				collided = true;
-				dvdLogo.direction.x *= -1.f;
-			}
+		//	WorldTransform& worldTransform = registry.get<WorldTransform>(entity);
+		//	
+		//	// HORIZONTAL MOVEMENT
+		//	if (worldTransform.position.x > 3.f && worldTransform.position.x < 3.05f)
+		//	{
+		//		collided = true;
+		//		dvdLogo.direction.x *= -1.f;
+		//	}
 
-			else if (worldTransform.position.x < -3.f && worldTransform.position.x > -3.05f)
-			{
-				collided = true;
-				dvdLogo.direction.x *= -1.f;
-			}
+		//	else if (worldTransform.position.x < -3.f && worldTransform.position.x > -3.05f)
+		//	{
+		//		collided = true;
+		//		dvdLogo.direction.x *= -1.f;
+		//	}
 
-			// VERTICAL MOVEMENT
-			else if (worldTransform.position.y > 1.6f && worldTransform.position.y < 1.65f)
-			{
-				collided = true;
-				dvdLogo.direction.y *= -1.f;
-			}
+		//	// VERTICAL MOVEMENT
+		//	else if (worldTransform.position.y > 1.6f && worldTransform.position.y < 1.65f)
+		//	{
+		//		collided = true;
+		//		dvdLogo.direction.y *= -1.f;
+		//	}
 
-			else if (worldTransform.position.y < -1.3f && worldTransform.position.y > -1.35f)
-			{
-				collided = true;
-				dvdLogo.direction.y *= -1.f;
-			}
+		//	else if (worldTransform.position.y < -1.3f && worldTransform.position.y > -1.35f)
+		//	{
+		//		collided = true;
+		//		dvdLogo.direction.y *= -1.f;
+		//	}
 
-			// COLLISION - CHANGE COLOR
-			if (collided)
-			{
-				//while (dvdLogo.lastColor.r == sprite.color.r &&
-				//	dvdLogo.lastColor.g == sprite.color.g &&
-				//	dvdLogo.lastColor.b == sprite.color.b &&
-				//	dvdLogo.lastColor.a == sprite.color.a
-				//	)
-				//{
-				//}
-				sprite.color = LogoCollisionSystem::PossibleColors[RandomGenerator::RandomInt(1, LogoCollisionSystem::PossibleColors.Size() - 1)];
-				dvdLogo.lastColor = sprite.color;
-				break;
-			}
-		}
+		//	// COLLISION - CHANGE COLOR
+		//	if (collided)
+		//	{
+		//		//while (dvdLogo.lastColor.r == sprite.color.r &&
+		//		//	dvdLogo.lastColor.g == sprite.color.g &&
+		//		//	dvdLogo.lastColor.b == sprite.color.b &&
+		//		//	dvdLogo.lastColor.a == sprite.color.a
+		//		//	)
+		//		//{
+		//		//}
+		//		sprite.color = LogoCollisionSystem::PossibleColors[RandomGenerator::RandomInt(1, LogoCollisionSystem::PossibleColors.Size() - 1)];
+		//		dvdLogo.lastColor = sprite.color;
+		//		break;
+		//	}
+		//}
 	}
 }
 

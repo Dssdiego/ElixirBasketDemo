@@ -1,5 +1,5 @@
 /*
-* Created by Diego S. Seabra on 2023-12-26
+* Created by Diego S. Seabra on 2024-01-06
 */
 
 #pragma once
@@ -16,7 +16,7 @@ namespace ElixirGame
 	using namespace Elixir;
 	using namespace ElixirGameEditor;
 
-	class DVDLogo
+	class BasketGame
 	{
 		friend class GameEditor;
 
