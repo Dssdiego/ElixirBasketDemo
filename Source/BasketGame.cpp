@@ -7,9 +7,9 @@
 #include "../Source/ECS/ECS.h"
 #include "../Source/Color/Color.h"
 
+#include "Archetypes/ScoreArchetype.h"
 #include "Archetypes/BasketArchetype.h"
 #include "Archetypes/ThrowLineLimitArchetype.h"
-#include "Archetypes/GameLimitArchetype.h"
 
 using namespace Elixir;
 using namespace ElixirGame;
@@ -22,7 +22,9 @@ void BasketGame::CreateWorld()
 	BasketArchetype::Create();
 	ThrowLineLimitArchetype::Create();
 
-	GameLimitArchetype::Create(glm::vec3(7.f, 0.f, 0.f), "Right");
-	GameLimitArchetype::Create(glm::vec3(-7.f, 0.f, 0.f), "Left");
+	ScoreArchetype::Create();
+
+	//GameLimitArchetype::Create(glm::vec3(7.f, 0.f, 0.f), "Right");
+	//GameLimitArchetype::Create(glm::vec3(-7.f, 0.f, 0.f), "Left");
 }
 

@@ -37,7 +37,7 @@ namespace ElixirGame
 			worldTransform.position = position;
 
 			Hitbox hitbox;
-			hitbox.color = Color::Yellow;
+			hitbox.color = Color::Red;
 
 			Gravity gravity;
 			gravity.value = 200.f;

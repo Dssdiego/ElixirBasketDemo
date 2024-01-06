@@ -21,16 +21,14 @@
 #include "Components/Ball.h"
 #include "Components/Basket.h"
 #include "Components/ThrowLineLimit.h"
-#include "Components/GameLimit.h"
-
-#include "Archetypes/BallArchetype.h"
+#include "Components/Score.h"
 
 #include "Systems/BallDestructionSystem.h"
 #include "Systems/BallCollisionSystem.h"
 #include "Systems/BallSpawnSystem.h"
 #include "Systems/BasketMovementSystem.h"
-#include "Systems/BasketCollisionSystem.h"
 #include "Systems/LinePositionSystem.h"
+#include "Systems/ScoreDisplaySystem.h"
 
 using namespace ElixirGame;
 
@@ -44,7 +42,7 @@ void MyGame::RegisterComponents()
 
 	EntityEditor::RegisterComponent<ThrowLineLimit>(ICON_MDI_BASKETBALL_HOOP, "game");
 
-	EntityEditor::RegisterComponent<GameLimit>(ICON_MDI_WALL, "game");
+	EntityEditor::RegisterComponent<Score>(ICON_MDI_COUNTER, "game");
 }
 
 void MyGame::RegisterSystems()
@@ -59,6 +57,8 @@ void MyGame::RegisterSystems()
 	//SystemEditor::RegisterSystem<BasketCollisionSystem>(ICON_MDI_BASKETBALL);
 
 	SystemEditor::RegisterSystem<LinePositionSystem>(ICON_MDI_BASKETBALL);
+
+	SystemEditor::RegisterSystem<ScoreDisplaySystem>(ICON_MDI_COUNTER);
 }
 
 void MyGame::RegisterInputActions()
