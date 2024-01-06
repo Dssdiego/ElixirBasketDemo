@@ -51,10 +51,11 @@ namespace ElixirGame
 
 			Text textComp;
 			textComp.text = "00";
-			textComp.scale = 0.35f;
+			textComp.scale = 0.5f;
+			textComp.color = Color::GMB_1;
 
 			Transform textTransform;
-			textTransform.position = glm::vec3(0.1f, 0.f, -1.f);
+			textTransform.position = glm::vec3(0.3f, 0.f, -1.f);
 
 			ECS::AddComponent(scoreText, textComp);
 			ECS::AddComponent(scoreText, WorldTransform{});
