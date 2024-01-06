@@ -16,12 +16,15 @@
 #include "../Source/Rendering/Camera.h"
 
 #include "../Source/Input/Mouse.h"
+#include "../Source/Input/Keyboard.h"
 
 #include "Components/Ball.h"
+#include "Components/Basket.h"
 
 #include "Archetypes/BallArchetype.h"
 
 #include "Systems/BallDestructionSystem.h"
+#include "Systems/BasketMovementSystem.h"
 
 using namespace ElixirGame;
 
@@ -31,6 +34,7 @@ void MyGame::RegisterComponents()
 
 	// components
 	EntityEditor::RegisterComponent<Ball>(ICON_MDI_BASKETBALL, "game");
+	EntityEditor::RegisterComponent<Basket>(ICON_MDI_BASKETBALL_HOOP, "game");
 }
 
 void MyGame::RegisterSystems()
@@ -38,7 +42,7 @@ void MyGame::RegisterSystems()
 	Logger::Info(ELogContext::GAME, "Registering game systems...");
 
 	SystemEditor::RegisterSystem<BallDestructionSystem>(ICON_MDI_BASKETBALL);
-	//SystemEditor::RegisterSystem<LogoCollisionSystem>(ICON_MDI_CURSOR_MOVE);
+	SystemEditor::RegisterSystem<BasketMovementSystem>(ICON_MDI_BASKETBALL);
 }
 
 void MyGame::RegisterInputActions()
@@ -75,7 +79,7 @@ void MyGame::Init()
 
 void MyGame::Update()
 {
-	if (Mouse::IsButtonPressed(EMouseButton::LEFT))
+	if (Mouse::IsButtonPressed(EMouseButton::RIGHT))
 	{
 		BallArchetype::Create(Mouse::GetWorldPosition3D());
 	}

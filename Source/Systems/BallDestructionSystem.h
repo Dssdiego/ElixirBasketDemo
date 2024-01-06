@@ -38,7 +38,7 @@ namespace Elixir
 			WorldTransform& worldTransform = registry.get<WorldTransform>(entity);
 			
 			// If the ball hits the bottom of the screen, it gets destroyed
-			// TODO: And then we create the "Miss" image
+			// And then we create the "Miss" image
 			if (worldTransform.position.y > 3.5f)
 			{
 				HitMissArchetype::Create(worldTransform.position, EHitMissType::MISS);

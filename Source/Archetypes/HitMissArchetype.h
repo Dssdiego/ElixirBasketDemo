@@ -10,8 +10,6 @@
 #include "../Source/ECS/Components/Hitbox.h"
 #include "../Source/ECS/Components/TweenPosition.h"
 
-#include "../Components/Ball.h"
-
 #include <entt/entt.hpp>
 
 namespace ElixirGame
@@ -64,8 +62,6 @@ namespace ElixirGame
 
 		inline static void OnTweenEnded(entt::entity entity)
 		{
-			Logger::Debug(ELogContext::GAME, "Hit/Miss tween ended!");
-
 			if (!ECS::GetRegistryRef().valid(entity))
 				return;
 

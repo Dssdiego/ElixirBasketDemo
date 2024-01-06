@@ -41,6 +41,7 @@ namespace ElixirGame
 
 			Gravity gravity;
 			gravity.value = 200.f;
+			gravity.useAcceleration = true;
 
 			ECS::AddComponent(ball, sprite);
 			ECS::AddComponent(ball, worldTransform);
