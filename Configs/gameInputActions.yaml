@@ -1,0 +1,24 @@
+actions:
+    # - name: moveUp
+    #   bindings:
+    #     - keyboard: W
+        #- keyboard: ARROW_UP
+        # - joystick: DPADUP
+  
+    # - name: moveDown
+    #   bindings:
+    #     - keyboard: S
+        #- keyboard: ARROW_DOWN
+        #- joystick: DPAD_DOWN
+
+    # - name: moveLeft
+    #   bindings:
+    #     - keyboard: A
+        #- keyboard: ARROW_LEFT
+        #- joystick: DPAD_LEFT
+
+    # - name: moveRight
+    #   bindings:
+    #     - keyboard: D
+        #- keyboard: ARROW_RIGHT
+        #- joystick: DPAD_RIGHT

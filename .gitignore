@@ -1,0 +1,27 @@
+# Common
+Build/
+Generated/
+Generated/**
+
+# Visual Studio (+ VS Code)
+.vs/
+.vscode/
+
+# Windows
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+Resource/*.aps
+*.aps
+
+# Android
+*.androidproj
+*.androidproj.user
+
+# Linux
+Makefile
+
+# Mac OS X
+*.DS_Store
+ElixirMac.xcworkspace

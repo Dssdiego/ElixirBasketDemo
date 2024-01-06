@@ -1,0 +1,6 @@
+textures:
+  - name: dvd_logo
+    path: Game/Assets/Textures/DVDLogo.png
+    tile_w: 1200
+    tile_h: 720
+    sampler: pixel_art
