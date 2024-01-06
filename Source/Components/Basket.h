@@ -12,6 +12,7 @@ namespace ElixirGame
 	struct Basket
 	{
 		float speed = 1.f;
+		float directionX = 1.f;
 
 		/* Serialization */
 		template<class Archive>

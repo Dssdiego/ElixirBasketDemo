@@ -5,6 +5,7 @@
 #pragma once
 
 #include "../Source/ECS/SystemEditor.h"
+#include "../Source/Time/Time.h"
 
 #include "../Components/Basket.h"
 
@@ -32,7 +33,12 @@ namespace Elixir
 				return;
 
 			Basket& basket = registry.get<Basket>(entity);
+			WorldTransform& worldTransform = registry.get<WorldTransform>(entity);
 
+			worldTransform.position.x += basket.directionX * basket.speed * Time::Delta;
+
+			if (worldTransform.position.x >= 6.f || worldTransform.position.x <= -6.f)
+				basket.directionX *= -1;
 		}
 	}
 }

@@ -24,6 +24,7 @@
 #include "Archetypes/BallArchetype.h"
 
 #include "Systems/BallDestructionSystem.h"
+#include "Systems/BallCollisionSystem.h"
 #include "Systems/BasketMovementSystem.h"
 
 using namespace ElixirGame;
@@ -42,6 +43,7 @@ void MyGame::RegisterSystems()
 	Logger::Info(ELogContext::GAME, "Registering game systems...");
 
 	SystemEditor::RegisterSystem<BallDestructionSystem>(ICON_MDI_BASKETBALL);
+	SystemEditor::RegisterSystem<BallCollisionSystem>(ICON_MDI_BASKETBALL);
 	SystemEditor::RegisterSystem<BasketMovementSystem>(ICON_MDI_BASKETBALL);
 }
 

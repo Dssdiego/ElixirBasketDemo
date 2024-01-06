@@ -52,3 +52,9 @@ textures:
     tile_w: 194
     tile_h: 55
     sampler: pixel_art
+
+  - name: line
+    path: Game/Assets/Textures/throw_line.png
+    tile_w: 320
+    tile_h: 1
+    sampler: pixel_art
